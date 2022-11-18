@@ -90,7 +90,7 @@ async function run() {
 const buildAppMaybe = () => {
   const buildApp = core.getInput('build')
   if (!buildApp) {
-    return
+    return new Promise((resolve, reject)=> {})
   }
 
   debug(`building application using "${buildApp}"`)
@@ -166,7 +166,7 @@ const startServersMaybe = () => {
 const waitOnMaybe = () => {
   const waitOn = core.getInput('wait-on')
   if (!waitOn) {
-    return
+    return new Promise((resolve, reject)=> {})
   }
 
   const waitOnTimeout = core.getInput('wait-on-timeout') || '60'
